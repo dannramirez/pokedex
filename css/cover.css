@@ -1,0 +1,35 @@
+.cover{
+
+
+}
+
+.cover-front{
+    inline-size: inherit;
+    block-size: inherit;
+    background-color:aquamarine;   
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    transition: 2.5s transform;
+    transform-origin: right center;
+    backface-visibility: hidden;
+}
+
+.cover-back{
+    inline-size: inherit;
+    block-size: inherit;
+    background-color: aqua;    
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    inset-inline-start: 100%;
+
+    
+    transform: rotatey(-180deg);
+    transform-origin: left center;
+    transition: 2.5s transform;
+    backface-visibility: hidden;
+
+}
