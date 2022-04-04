@@ -24,24 +24,3 @@
     inline-size: 0.5rem;
     margin-inline-end: 0.5rem;
 }
-
-.light.l1 {
-    background-color: var(--light1);
-    margin-inline-end: 1rem;
-    block-size: 2rem;
-    inline-size: 2rem;
-    border: .125rem solid white;
-}
-
-.light.l2 {
-    background-color: var(--light2);
-}
-
-.light.l3 {
-    background-color: var(--light3);
-
-}
-
-.light.l4 {
-    background-color: var(--light4);
-}

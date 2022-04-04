@@ -1,0 +1,39 @@
+
+.light.l1 {
+    background-color: var(--light1);
+    margin-inline-end: 1rem;
+    block-size: 2rem;
+    inline-size: 2rem;
+    border: .125rem solid var(--white);
+    box-sizing: border-box;
+}
+
+.light.l2 {
+    background-color: var(--light2);
+}
+
+.light.l3 {
+    background-color: var(--light3);
+
+}
+
+.light.l4 {
+    background-color: var(--light4);
+}
+
+.light.is-animated{
+    animation: light 0.3s linear infinite ;
+}
+
+@keyframes light {
+    0%{
+        background-color: var(--white);
+    }
+    50%{
+        background-color: var(--light1);
+    }
+    100%{
+        background-color: var(--white);
+    }
+    
+}
