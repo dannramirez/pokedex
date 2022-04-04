@@ -1,0 +1,47 @@
+.header {
+    background-color: var(--primary2);
+
+    margin: -1.5rem;
+    margin-block-end: 0;
+
+    padding: 1.5rem;
+    padding-block-start: 1rem;
+
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.5rem), 70% calc(100% - 1.5rem), 0 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header-shadow {
+    filter: drop-shadow(0 .25rem 0 black);
+}
+
+.header .light {
+    border-radius: 100%;
+    block-size: 0.5rem;
+    inline-size: 0.5rem;
+    margin-inline-end: 0.5rem;
+}
+
+.light.l1 {
+    background-color: var(--light1);
+    margin-inline-end: 1rem;
+    block-size: 2rem;
+    inline-size: 2rem;
+    border: .125rem solid white;
+}
+
+.light.l2 {
+    background-color: var(--light2);
+}
+
+.light.l3 {
+    background-color: var(--light3);
+
+}
+
+.light.l4 {
+    background-color: var(--light4);
+}

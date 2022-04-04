@@ -6,7 +6,7 @@
 .cover-front{
     inline-size: inherit;
     block-size: inherit;
-    background-color:aquamarine;   
+    background-color:var(--primary);   
     position: absolute;
     inset: 0;
     z-index: 2;
@@ -25,11 +25,10 @@
     z-index: 1;
 
     inset-inline-start: 100%;
-
-    
-    transform: rotatey(-180deg);
-    transform-origin: left center;
-    transition: 2.5s transform;
     backface-visibility: hidden;
+    
+    transition: 2.5s transform;
+    transform-origin: left center;
+    transform: rotatey(-180deg);
 
 }
