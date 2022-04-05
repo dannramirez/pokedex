@@ -1,9 +1,22 @@
-.screen{
-
+.frame {
+    background-color: var(--white);
+    padding: 1.5rem;
+    padding-block-end: 2.75rem;
+    border-radius: 0.5rem;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 2rem 100%, 0 calc(100% - 2.75rem));
 }
-.frame{
 
-}
-.glass{
-    
+.glass {
+    background-color: var(--screencolor);
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    block-size: 10rem;
+    box-sizing: border-box;
+
+    background-size: cover;
 }
