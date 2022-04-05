@@ -2,12 +2,15 @@
 @import './cover.css';
 @import './header.css';
 @import './light.css';
+@import './stats.css';
+@import './screen.css';
 
 :root {
     --white: #fffffe;
     --black: #300f16;
     --primary: #dc0a2d;
     --primary2: #C70424;
+    --bordercover: #BA111F;
     --secondary: #163355;
     --light1: #4BA3DA;
     --light2: #5BAA67;
