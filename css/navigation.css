@@ -1,3 +1,53 @@
-.navigation{
+.navigation {
     grid-area: navigation;
+    display: grid;
+    inline-size: 5rem;
+    block-size: 5rem;
+    grid-template-areas: "a b c"
+        "d e f"
+        "g h i";
+    grid-template-columns: repeat(3, 1.667rem);
+    grid-template-rows: repeat(3, 1.667rem);
+
+    filter: drop-shadow(0.2rem .25rem 0 var(--black));
+
+    align-self: flex-start;
+    justify-self: center;
+}
+
+.navigation>* {
+    border: none;
+    background-color: var(--secondary);
+    cursor: pointer;
+
+}
+
+.navigation>button:active {
+    transform: scale(0.9);
+}
+
+
+.navigation-right {
+    grid-area: 2/ 3 / 3/ 4;
+    transform-origin: left;
+}
+
+.navigation-left {
+    grid-area: 2/ 1 / 3/ 2;
+    transform-origin: right;
+}
+
+.navigation-up {
+    grid-area: 1/ 2 / 2/ 3;
+    transform-origin: bottom;
+}
+
+.navigation-down {
+    grid-area: 3/ 2 / 4/ 3;
+    transform-origin: top;
+}
+
+.navigation-center {
+    grid-area: 2/ 2 / 3/ 3;
+    transform-origin: center;
 }
