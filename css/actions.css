@@ -2,7 +2,9 @@
     display: grid;
     grid-template-columns: 1fr 5.5rem;
     grid-template-rows:  auto auto 1fr;
-    gap: 1rem;
+    row-gap: 1rem;
+    column-gap: 0.9rem;
+    /*column-gap: 0.9rem; Mobile*/
     overflow: auto;
     grid-template-areas: 'variants variants' 'search navigation' 'description navigation';
 }

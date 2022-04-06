@@ -19,11 +19,19 @@
     border: none;
     background-color: var(--secondary);
     cursor: pointer;
-
+    position: relative;
 }
 
 .navigation>button:active {
     transform: scale(0.9);
+}
+.navigation>*::after {
+    content: '';
+    border: 0.25rem solid transparent;
+    position: absolute;
+    inset-inline-start: 50%;
+    inset-block-start: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 
@@ -50,4 +58,22 @@
 .navigation-center {
     grid-area: 2/ 2 / 3/ 3;
     transform-origin: center;
+}
+
+.navigation-left::after{
+    border-inline-start: none;
+    border-inline-end-color: var(--white);   
+}
+
+.navigation-right::after{
+    border-inline-end: none;
+    border-inline-start-color: var(--white);   
+}
+.navigation-up::after{
+    border-block-start: none;
+    border-block-end-color: var(--white);   
+}
+.navigation-down::after{
+    border-block-end: none;
+    border-block-start-color: var(--white);   
 }
