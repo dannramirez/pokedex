@@ -10,9 +10,9 @@ $form.addEventListener('submit',async (event)=>{
     const id = form.get('id');
     const pokemon = await getPokemon(id);
     const species = await getSpecies(id);
-
-
+    const description = species.flavor_text_entries.find((flavor)=>flavor.language.name === 'es');
     $image.src = pokemon.sprites.front_default;
+    $textContent.textContent = description.flavor_text;
 
     console.log(pokemon , species)
 })
