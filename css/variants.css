@@ -1,3 +1,57 @@
 .variants{
     grid-area: variants;
+    inline-size: inherit;
+    block-size: 3.25rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.BT_A{
+    background-color: var(--secondary);
+    block-size: 3.25rem;
+    inline-size: 3.25rem;
+    box-sizing: border-box;
+    border-radius: 50%;
+    filter: drop-shadow(0.2rem .25rem 0 var(--black));
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+
+}
+
+.BT_B{
+    inline-size: 5.25rem;
+    block-size: 0.5rem;
+    box-sizing: border-box;
+    display: flex;
+    gap: 1rem;
+
+}
+
+.BT_B > button{
+    inline-size: 1.875rem;
+    block-size: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    border: none;
+    background-color: var(--secondary);
+    filter: drop-shadow(0.15rem .15rem 0 var(--black));
+    cursor: pointer;
+}
+
+.BT_B > button:nth-child(1){
+    background-color: var(--btnB1);
+    filter: drop-shadow(0.15rem .15rem 0 var(--btnB2));
+
+}
+
+.BT_A:active{
+    transform: scale(0.9);
+}
+
+.BT_B > button:active{
+    transform: scale(0.9);
 }
