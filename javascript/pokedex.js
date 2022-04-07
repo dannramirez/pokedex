@@ -21,6 +21,7 @@ function clearInput(event){
 async function findPokemon(id) {
     const pokemon = await getPokemon(id);
     const species = await getSpecies(id);
+    console.log(pokemon, species);
     const description = species.flavor_text_entries.find((flavor) => flavor.language.name === 'es');
     return {
         description: description.flavor_text,
@@ -29,6 +30,8 @@ async function findPokemon(id) {
         id: pokemon.id
     };
 }
+
+
 
 async function setPokemon(id) {
     $name.blur();

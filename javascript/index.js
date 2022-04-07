@@ -30,8 +30,6 @@ async function handleSubmit(event) {
     const number = form1.get('number');
     const name = form2.get('name').toLowerCase();
     const id = number || name;
-    console.log(number, name, id);
-
     infoActualPokemon = await setPokemon(id);
 }
 

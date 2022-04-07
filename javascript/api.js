@@ -3,25 +3,45 @@ const BASE_API = "https://pokeapi.co/api/v2";
 async function getPokemon(id) {
     try {
         const response = await fetch(`${BASE_API}/pokemon/${id}/`);
-        return await response.json();
+        if (response.status !== 200) {
+            console.log("B")
+            return await {
+                sprites: {
+                    front_default: "/images/pokeball.svg"
+                },
+                name: "---------------",
+                id: "00"
+            };
+        } else {
+            console.log("A")
+            return await response.json();
+        }
     } catch (err) {
-        error => console.log('error', error)
+        error => console.log('error', error);
     }
-
-    return data;
 }
 
 async function getSpecies(id) {
     try {
         const response = await fetch(`${BASE_API}/pokemon-species/${id}/`);
-        return await response.json();
-
+        if (response.status !== 200) {
+            return await {
+                flavor_text_entries: [{
+                    flavor_text: "Pokemon no encontrado, intenta con otro!!",
+                    language: {
+                        name: "es"
+                    }
+                }]
+            };
+        } else {
+            return await response.json();
+        }
     } catch (err) {
-        error => console.log('error', error)
-        return;
+        error => console.log('error', error);
     }
-
-    
 }
 
-export { getPokemon, getSpecies};
+export {
+    getPokemon,
+    getSpecies
+};
