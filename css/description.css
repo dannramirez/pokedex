@@ -5,9 +5,13 @@
     border-radius: 0.5rem;
     font-family: monospace;
     color: black;
-    block-size: 6.5rem;
+    block-size: 6.6rem;
     overflow: auto;
     border: 2px solid black;
+}
+
+.description::-webkit-scrollbar {
+    display: none;
 }
 
 .description p {
