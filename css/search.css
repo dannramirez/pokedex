@@ -30,6 +30,7 @@
 
 .search #name {
     inline-size: 100%;
+    padding-left: 0.5rem;
 }
 
 .search input:focus {
