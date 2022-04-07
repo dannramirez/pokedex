@@ -10,7 +10,7 @@ async function getPokemon(id) {
                     front_default: "/images/pokeball.svg"
                 },
                 name: "---------------",
-                id: "00"
+                id: 0
             };
         } else {
             console.log("A")

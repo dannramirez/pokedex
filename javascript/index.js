@@ -34,12 +34,12 @@ async function handleSubmit(event) {
 }
 
 async function nextPokemon() {
-    const id = (infoActualPokemon === null || infoActualPokemon.id === 898) ? 1 : infoActualPokemon.id + 1;
+    const id = (infoActualPokemon === null ||[898, 0].includes(infoActualPokemon.id)) ? 1 : infoActualPokemon.id + 1;
     infoActualPokemon = await setPokemon(id);
 };
 
 async function prevPokemon() {
-    const id = (infoActualPokemon === null || infoActualPokemon.id === 1) ? 898 : infoActualPokemon.id - 1;
+    const id = (infoActualPokemon === null ||[1, 0].includes(infoActualPokemon.id)) ? 898 : infoActualPokemon.id - 1;
     infoActualPokemon = await setPokemon(id);
 };
 
