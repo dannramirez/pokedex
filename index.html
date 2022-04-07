@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <main class="pokedex is-open" tabindex="0">
+    <main class="pokedex" id="pokedex" tabindex="0">
         <section class="pokedex-main">
             <div class="header-shadow">
                 <div class="header">
@@ -50,7 +50,8 @@
                         <input type="number" id="number" name="number" placeholder="#" autocomplete="off">
                     </form>
                     <form id="form2">
-                        <input type="text" id="name" name="name" placeholder="¿Quién es ese pokemon?" autocomplete="off">
+                        <input type="text" id="name" name="name" placeholder="¿Quién es ese pokemon?"
+                            autocomplete="off">
                     </form>
                 </div>
 
@@ -66,9 +67,7 @@
                 </div>
             </div>
         </section>
-        <div class="cover-front" aria-label="Información general del pokemon">
-            CFront
-        </div>
+        <div class="cover-front" aria-label="Información general del pokemon"> </div>
         <section class="cover-back" aria-label="Estadiscitas del pokemon">
             <div class="stats">
                 Stats
@@ -76,7 +75,7 @@
         </section>
     </main>
 
-    <script type="module"  src="/javascript/index.js"></script>
+    <script type="module" src="/javascript/index.js"></script>
     </div>
 </body>
 
