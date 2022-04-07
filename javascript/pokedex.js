@@ -14,8 +14,8 @@ $name.addEventListener('focus',clearInput);
 $number.addEventListener('focus',clearInput);
 
 function clearInput(event){
-    $name.value = '';
-    $number.value = '';
+        $name.value = '';
+        $number.value = '';
 }
 
 
@@ -32,6 +32,9 @@ async function findPokemon(id) {
 }
 
 async function setPokemon(id) {
+    $name.blur();
+    $number.blur();
+
     loader(true);
     const pokemon = await findPokemon(id);
     loader(false);
