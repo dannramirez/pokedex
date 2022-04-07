@@ -1,17 +1,34 @@
-import { getPokemon, getSpecies } from "./api.js";
+import {
+    getPokemon,
+    getSpecies
+} from "./api.js";
 
 const $image = document.querySelector('#image');
 const $textContent = document.querySelector('#textContent');
 const $screen = document.querySelector('#screen');
 
+const $name = document.querySelector('#name');
+const $number = document.querySelector('#number');
+
+$name.addEventListener('focus',clearInput);
+$number.addEventListener('focus',clearInput);
+
+function clearInput(event){
+    $name.value = '';
+    $number.value = '';
+}
+
 
 async function findPokemon(id) {
     const pokemon = await getPokemon(id);
     const species = await getSpecies(id);
-    const description = species.flavor_text_entries.find((flavor)=>flavor.language.name === 'es');
-    return { 
-        description:description.flavor_text,
-        sprites:pokemon.sprites.front_default,};
+    const description = species.flavor_text_entries.find((flavor) => flavor.language.name === 'es');
+    return {
+        description: description.flavor_text,
+        sprites: pokemon.sprites.front_default,
+        name: pokemon.name,
+        id: pokemon.id
+    };
 }
 
 async function setPokemon(id) {
@@ -19,13 +36,23 @@ async function setPokemon(id) {
     const pokemon = await findPokemon(id);
     loader(false);
     setPokemonImage(pokemon.sprites);
-    setPokemonDescription(pokemon.description);    
+    setPokemonDescription(pokemon.description);
+    setPokemonName(pokemon.name);
+    setPokemonID(pokemon.id);
 }
 
 function loader(isLoading = false) {
-    const img = isLoading ? 'url(./images/loading.gif)':'';
+    const img = isLoading ? 'url(./images/loading.gif)' : '';
     $image.src = '';
     $screen.style.backgroundImage = img;
+}
+
+function setPokemonName(name) {
+    $name.value = name.toUpperCase();
+}
+
+function setPokemonID(id) {
+    $number.value = id;
 }
 
 function setPokemonImage(image) {
@@ -33,8 +60,10 @@ function setPokemonImage(image) {
 }
 
 function setPokemonDescription(description) {
-    $textContent.textContent = description;       
+    $textContent.textContent = description;
 }
 
 
-export {setPokemon};
+export {
+    setPokemon
+};
