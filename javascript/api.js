@@ -1,13 +1,8 @@
 const BASE_API = "https://pokeapi.co/api/v2";
 
-var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-};
-
 async function getPokemon(id) {
     try {
-        const response = await fetch(`${BASE_API}/pokemon/${id}/`, requestOptions);
+        const response = await fetch(`${BASE_API}/pokemon/${id}/`);
         return await response.json();
     } catch (err) {
         error => console.log('error', error)
@@ -18,11 +13,12 @@ async function getPokemon(id) {
 
 async function getSpecies(id) {
     try {
-        const response = await fetch(`${BASE_API}/pokemon-species/${id}/`, requestOptions);
+        const response = await fetch(`${BASE_API}/pokemon-species/${id}/`);
         return await response.json();
 
     } catch (err) {
         error => console.log('error', error)
+        return;
     }
 
     

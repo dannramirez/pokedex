@@ -1,11 +1,25 @@
-import { setPokemon } from "./pokedex.js";
+import {
+    setPokemon
+} from "./pokedex.js";
 
 const $form1 = document.querySelector('#form1');
 const $form2 = document.querySelector('#form2');
 
-$form1.addEventListener('submit',handleSubmit);
-$form2.addEventListener('submit',handleSubmit);
+const $navigationRight = document.querySelector('#navigationRight');
+const $navigationLeft = document.querySelector('#navigationLeft');
+const $navigationUp = document.querySelector('#navigationUp');
+const $navigationDown = document.querySelector('#navigationDown');
 
+
+$form1.addEventListener('submit', handleSubmit);
+$form2.addEventListener('submit', handleSubmit);
+
+$navigationRight.addEventListener('click', nextPokemon);
+$navigationLeft.addEventListener('click', prevPokemon);
+$navigationUp.addEventListener('click', nextImage);
+$navigationDown.addEventListener('click', prevImage);
+
+let infoActualPokemon = null;
 
 async function handleSubmit(event) {
     event.preventDefault();
@@ -13,6 +27,26 @@ async function handleSubmit(event) {
     const form2 = new FormData($form2);
     const number = form1.get('number');
     const name = form2.get('name').toLowerCase();
-    const id = number || name; 
-    setPokemon(id);
+    const id = number || name;
+    console.log(number, name, id);
+
+    infoActualPokemon = await setPokemon(id);
 }
+
+async function nextPokemon() {
+    const id = (infoActualPokemon === null || infoActualPokemon.id === 898) ? 1 : infoActualPokemon.id + 1;
+    infoActualPokemon = await setPokemon(id);
+};
+
+async function prevPokemon() {
+    const id = (infoActualPokemon === null || infoActualPokemon.id === 1) ? 898 : infoActualPokemon.id - 1;
+    infoActualPokemon = await setPokemon(id);
+};
+
+function nextImage() {
+    console.log("Boton presionado3");
+};
+
+function prevImage() {
+    console.log("Boton presionado4");
+};
