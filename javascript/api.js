@@ -4,7 +4,6 @@ async function getPokemon(id) {
     try {
         const response = await fetch(`${BASE_API}/pokemon/${id}/`);
         if (response.status !== 200) {
-            console.log("B")
             return await {
                 sprites: {
                     front_default: "/images/pokeball.svg"
@@ -13,7 +12,6 @@ async function getPokemon(id) {
                 id: 0
             };
         } else {
-            console.log("A")
             return await response.json();
         }
     } catch (err) {

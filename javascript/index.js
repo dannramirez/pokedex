@@ -1,5 +1,6 @@
 import {
-    setPokemon
+    setPokemon,
+    setPokemonImage
 } from "./pokedex.js";
 
 const $pokedex = document.querySelector('#pokedex');
@@ -17,6 +18,7 @@ $form2.addEventListener('submit', handleSubmit);
 
 $navigationRight.addEventListener('click', nextPokemon);
 $navigationLeft.addEventListener('click', prevPokemon);
+
 $navigationUp.addEventListener('click', nextImage);
 $navigationDown.addEventListener('click', prevImage);
 
@@ -36,6 +38,8 @@ async function handleSubmit(event) {
 }
 
 async function handleRandom() {
+
+    $pokedex.classList.add('is-open');
     const id = getRandomArbitrary();
     infoActualPokemon = await setPokemon(id);
 }
@@ -45,19 +49,31 @@ function getRandomArbitrary() {
 }
 
 async function nextPokemon() {
-    const id = (infoActualPokemon === null ||[898, 0].includes(infoActualPokemon.id)) ? 1 : infoActualPokemon.id + 1;
+    const id = (infoActualPokemon === null || [898, 0].includes(infoActualPokemon.id)) ? 1 : infoActualPokemon.id + 1;
     infoActualPokemon = await setPokemon(id);
 };
 
 async function prevPokemon() {
-    const id = (infoActualPokemon === null ||[1, 0].includes(infoActualPokemon.id)) ? 898 : infoActualPokemon.id - 1;
+    const id = (infoActualPokemon === null || [1, 0].includes(infoActualPokemon.id)) ? 898 : infoActualPokemon.id - 1;
     infoActualPokemon = await setPokemon(id);
 };
 
 function nextImage() {
-    console.log("Boton presionado3");
+    if (infoActualPokemon !== null) {
+        const imageNumber = infoActualPokemon.sprites.length - 1;
+        infoActualPokemon.current = ([imageNumber, -1].includes(infoActualPokemon.current)) ? 0 : infoActualPokemon.current + 1;
+        setPokemonImage(infoActualPokemon.sprites[infoActualPokemon.current]);
+    }else{
+        return false;
+    }
 };
 
 function prevImage() {
-    console.log("Boton presionado4");
+    if (infoActualPokemon !== null) {
+        const imageNumber = infoActualPokemon.sprites.length - 1;
+        infoActualPokemon.current = ([0].includes(infoActualPokemon.current)) ? imageNumber : infoActualPokemon.current - 1;
+        setPokemonImage(infoActualPokemon.sprites[infoActualPokemon.current]);
+    }else{
+        return false;
+    }
 };

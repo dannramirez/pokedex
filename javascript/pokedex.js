@@ -10,22 +10,31 @@ const $screen = document.querySelector('#screen');
 const $name = document.querySelector('#name');
 const $number = document.querySelector('#number');
 
-$name.addEventListener('focus',clearInput);
-$number.addEventListener('focus',clearInput);
+$name.addEventListener('focus', clearInput);
+$number.addEventListener('focus', clearInput);
 
-function clearInput(event){
-        $name.value = '';
-        $number.value = '';
+function clearInput(event) {
+    $name.value = '';
+    $number.value = '';
 }
 
 async function findPokemon(id) {
     const pokemon = await getPokemon(id);
     const species = await getSpecies(id);
-    console.log(pokemon, species);
     const description = species.flavor_text_entries.find((flavor) => flavor.language.name === 'es');
+    const sprites = [pokemon.sprites.front_default]
+    Object.keys(pokemon.sprites).forEach(function (key) {
+        if (pokemon.sprites[key] !== null && key !== "other" && key !== "versions" && key !== "front_default") {
+            sprites.push(pokemon.sprites[key]);
+            //console.log('Key : ' + key + ', Value : ' + pokemon.sprites[key])
+        }
+    })
+
+    console.log(sprites);
     return {
         description: description.flavor_text,
-        sprites: pokemon.sprites.front_default,
+        sprites: sprites,
+        current: 0,
         name: pokemon.name,
         id: pokemon.id
     };
@@ -38,7 +47,7 @@ async function setPokemon(id) {
     loader(true);
     const pokemon = await findPokemon(id);
     loader(false);
-    setPokemonImage(pokemon.sprites);
+    setPokemonImage(pokemon.sprites[0]);
     setPokemonDescription(pokemon.description);
     setPokemonName(pokemon.name);
     setPokemonID(pokemon.id);
@@ -69,5 +78,6 @@ function setPokemonDescription(description) {
 
 
 export {
-    setPokemon
+    setPokemon,
+    setPokemonImage
 };
