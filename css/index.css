@@ -49,16 +49,16 @@ body {
     margin: 0;
     padding: 0;
     -webkit-user-select: none;
-    -khtml-user-select: none;
     -moz-user-select: -moz-none;
     -o-user-select: none;
-    user-select: none;
+    -ms-user-select: none;
+        user-select: none;
 }
 
 input {
     -webkit-user-select: text;
-    -khtml-user-select: text;
     -moz-user-select: text;
     -o-user-select: text;
-    user-select: text;
+    -ms-user-select: text;
+        user-select: text;
 }

@@ -15,7 +15,8 @@
     inline-size: 3.25rem;
     box-sizing: border-box;
     border-radius: 50%;
-    filter: drop-shadow(0.2rem .25rem 0 var(--black));
+    -webkit-filter: drop-shadow(0.2rem .25rem 0 var(--black));
+            filter: drop-shadow(0.2rem .25rem 0 var(--black));
     box-sizing: border-box;
     border: none;
     cursor: pointer;
@@ -28,9 +29,8 @@
     box-sizing: border-box;
     padding: 1rem;
     background-color: var(--white); /* defines the background color of the image */
-    mask: url('../images/random.svg') no-repeat center / contain;
     -webkit-mask: url('../images/random.svg') no-repeat center / contain;
-    
+            mask: url('../images/random.svg') no-repeat center / contain;    
 }
 
 .BT_B{
@@ -49,13 +49,15 @@
     border-radius: 0.25rem;
     border: none;
     background-color: var(--secondary);
-    filter: drop-shadow(0.15rem .15rem 0 var(--black));
+    -webkit-filter: drop-shadow(0.15rem .15rem 0 var(--black));
+            filter: drop-shadow(0.15rem .15rem 0 var(--black));
     cursor: pointer;
 }
 
 .BT_B > button:nth-child(1){
     background-color: var(--btnB1);
-    filter: drop-shadow(0.15rem .15rem 0 var(--btnB2));
+    -webkit-filter: drop-shadow(0.15rem .15rem 0 var(--btnB2));
+            filter: drop-shadow(0.15rem .15rem 0 var(--btnB2));
 
 }
 

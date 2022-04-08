@@ -9,7 +9,9 @@
     grid-template-columns: repeat(3, 1.667rem);
     grid-template-rows: repeat(3, 1.667rem);
 
-    filter: drop-shadow(0.2rem .25rem 0 var(--black));
+    -webkit-filter: drop-shadow(0.2rem .25rem 0 var(--black));
+
+            filter: drop-shadow(0.2rem .25rem 0 var(--black));
 
     align-self: flex-start;
     justify-self: center;
@@ -61,19 +63,23 @@
 }
 
 .navigation-left::after{
-    border-inline-start: none;
+    -webkit-border-start: none;
+            border-inline-start: none;
     border-inline-end-color: var(--white);   
 }
 
 .navigation-right::after{
-    border-inline-end: none;
+    -webkit-border-end: none;
+            border-inline-end: none;
     border-inline-start-color: var(--white);   
 }
 .navigation-up::after{
-    border-block-start: none;
+    -webkit-border-before: none;
+            border-block-start: none;
     border-block-end-color: var(--white);   
 }
 .navigation-down::after{
-    border-block-end: none;
+    -webkit-border-after: none;
+            border-block-end: none;
     border-block-start-color: var(--white);   
 }
