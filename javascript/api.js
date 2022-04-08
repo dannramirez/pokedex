@@ -6,7 +6,7 @@ async function getPokemon(id) {
         if (response.status !== 200) {
             return await {
                 sprites: {
-                    front_default: url("../images/pokeball.svg")
+                    front_default: "/pokedex/images/pokeball.svg"
                 },
                 name: "No existe",
                 id: 0
