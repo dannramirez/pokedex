@@ -2,6 +2,9 @@ import {
     getPokemon,
     getSpecies
 } from "./api.js";
+import {
+    createChart
+} from "./charts.js";
 
 const $image = document.querySelector('#image');
 const $textContent = document.querySelector('#textContent');
@@ -32,13 +35,13 @@ async function findPokemon(id) {
         }
     })
 
-    console.log(sprites);
     return {
         description: description.flavor_text,
         sprites: sprites,
         current: 0,
         name: pokemon.name,
-        id: pokemon.id
+        id: pokemon.id,
+        stats: pokemon.stats
     };
 }
 
@@ -56,6 +59,7 @@ async function setPokemon(id) {
     setPokemonDescription(pokemon.description);
     setPokemonName(pokemon.name);
     setPokemonID(pokemon.id);
+    setStats(pokemon.stats);
     return pokemon;
 }
 
@@ -80,11 +84,19 @@ function setPokemonImage(image) {
 function setPokemonDescription(description) {
     $textContent.textContent = description;
 }
+let activeChart = null;
+
+function setStats(stats) {
+    if (activeChart instanceof Chart){
+        activeChart.destroy();
+    }
+    activeChart = createChart(stats);
+}
 
 function speech(text) {
     $light.classList.add("is-animated");
     let utterance = new SpeechSynthesisUtterance(text);
-    
+
     utterance.lang = 'es';
     speechSynthesis.speak(utterance);
 

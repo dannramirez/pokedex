@@ -3,6 +3,8 @@ import {
     setPokemonImage
 } from "./pokedex.js";
 
+import './charts.js'
+
 const $pokedex = document.querySelector('#pokedex');
 const $form1 = document.querySelector('#form1');
 const $form2 = document.querySelector('#form2');
