@@ -1,4 +1,4 @@
-# Pokedex
+# Pokedex interactiva en HTML, CSS y JavaScript
 
 Consumo de API y creación de una interfaz para vizualizar los pokemon: https://dannramirez.github.io/pokedex/
 
