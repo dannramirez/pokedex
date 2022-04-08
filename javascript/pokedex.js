@@ -96,10 +96,8 @@ function setStats(stats) {
 function speech(text) {
     $light.classList.add("is-animated");
     let utterance = new SpeechSynthesisUtterance(text);
-
-    utterance.lang = 'es';
+    utterance.lang = 'es-us';
     speechSynthesis.speak(utterance);
-
     utterance.addEventListener('end', () => {
         $light.classList.remove("is-animated");
     })
