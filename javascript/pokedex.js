@@ -43,10 +43,11 @@ async function findPokemon(id) {
 async function setPokemon(id) {
     $name.blur();
     $number.blur();
-
+    $image.style.visibility = 'hidden';
     loader(true);
     const pokemon = await findPokemon(id);
     loader(false);
+    $image.style.visibility = 'visible';
     setPokemonImage(pokemon.sprites[0]);
     setPokemonDescription(pokemon.description);
     setPokemonName(pokemon.name);

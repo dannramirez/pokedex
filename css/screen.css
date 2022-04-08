@@ -30,6 +30,13 @@
     align-items: stretch;
 }
 
+#image{
+    block-size: inherit;
+    inline-size: inherit;
+    box-sizing: border-box;
+    visibility: hidden;
+}
+
 .buttons {
     flex: 1;
     display: flex;
