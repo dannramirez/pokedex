@@ -7,6 +7,8 @@ const $image = document.querySelector('#image');
 const $textContent = document.querySelector('#textContent');
 const $screen = document.querySelector('#screen');
 
+const $light = document.querySelector('#light');
+
 const $name = document.querySelector('#name');
 const $number = document.querySelector('#number');
 
@@ -48,6 +50,8 @@ async function setPokemon(id) {
     const pokemon = await findPokemon(id);
     loader(false);
     $image.style.visibility = 'visible';
+    speechSynthesis.cancel();
+    speech(`${pokemon.name}. ${pokemon.description}`);
     setPokemonImage(pokemon.sprites[0]);
     setPokemonDescription(pokemon.description);
     setPokemonName(pokemon.name);
@@ -76,6 +80,20 @@ function setPokemonImage(image) {
 function setPokemonDescription(description) {
     $textContent.textContent = description;
 }
+
+function speech(text) {
+    $light.classList.add("is-animated");
+    let utterance = new SpeechSynthesisUtterance(text);
+    
+    utterance.lang = 'es';
+    speechSynthesis.speak(utterance);
+
+    utterance.addEventListener('end', () => {
+        $light.classList.remove("is-animated");
+    })
+}
+
+
 
 
 export {

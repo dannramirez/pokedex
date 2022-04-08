@@ -11,6 +11,8 @@ const $navigationRight = document.querySelector('#navigationRight');
 const $navigationLeft = document.querySelector('#navigationLeft');
 const $navigationUp = document.querySelector('#navigationUp');
 const $navigationDown = document.querySelector('#navigationDown');
+const $navigationCenter = document.querySelector('#navigationCenter');
+
 const $randomButton = document.querySelector('#randomButton');
 
 $form1.addEventListener('submit', handleSubmit);
@@ -18,9 +20,9 @@ $form2.addEventListener('submit', handleSubmit);
 
 $navigationRight.addEventListener('click', nextPokemon);
 $navigationLeft.addEventListener('click', prevPokemon);
-
 $navigationUp.addEventListener('click', nextImage);
 $navigationDown.addEventListener('click', prevImage);
+//$navigationCenter.addEventListener('click', handleSpeech);
 
 $randomButton.addEventListener('click', handleRandom);
 
@@ -38,7 +40,6 @@ async function handleSubmit(event) {
 }
 
 async function handleRandom() {
-
     $pokedex.classList.add('is-open');
     const id = getRandomArbitrary();
     infoActualPokemon = await setPokemon(id);
@@ -77,3 +78,4 @@ function prevImage() {
         return false;
     }
 };
+
