@@ -31,8 +31,6 @@ async function findPokemon(id) {
     };
 }
 
-
-
 async function setPokemon(id) {
     $name.blur();
     $number.blur();

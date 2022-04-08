@@ -10,7 +10,7 @@ const $navigationRight = document.querySelector('#navigationRight');
 const $navigationLeft = document.querySelector('#navigationLeft');
 const $navigationUp = document.querySelector('#navigationUp');
 const $navigationDown = document.querySelector('#navigationDown');
-
+const $randomButton = document.querySelector('#randomButton');
 
 $form1.addEventListener('submit', handleSubmit);
 $form2.addEventListener('submit', handleSubmit);
@@ -19,6 +19,8 @@ $navigationRight.addEventListener('click', nextPokemon);
 $navigationLeft.addEventListener('click', prevPokemon);
 $navigationUp.addEventListener('click', nextImage);
 $navigationDown.addEventListener('click', prevImage);
+
+$randomButton.addEventListener('click', handleRandom);
 
 let infoActualPokemon = null;
 
@@ -31,6 +33,15 @@ async function handleSubmit(event) {
     const name = form2.get('name').toLowerCase();
     const id = number || name;
     infoActualPokemon = await setPokemon(id);
+}
+
+async function handleRandom() {
+    const id = getRandomArbitrary();
+    infoActualPokemon = await setPokemon(id);
+}
+
+function getRandomArbitrary() {
+    return Math.floor(Math.random() * 898) + 1;
 }
 
 async function nextPokemon() {

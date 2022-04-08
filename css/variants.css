@@ -19,7 +19,18 @@
     box-sizing: border-box;
     border: none;
     cursor: pointer;
+    display: flex;
+}
 
+.BT_A #randomButton{
+    inline-size: inherit;
+    block-size: inherit;
+    box-sizing: border-box;
+    padding: 1rem;
+    background-color: var(--white); /* defines the background color of the image */
+    mask: url('/images/random.svg') no-repeat center / contain;
+    -webkit-mask: url('/images/random.svg') no-repeat center / contain;
+    
 }
 
 .BT_B{
