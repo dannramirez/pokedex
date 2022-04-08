@@ -1,10 +1,10 @@
 import {
     getPokemon,
     getSpecies
-} from "./api.js";
+} from "/api.js";
 import {
     createChart
-} from "./charts.js";
+} from "/charts.js";
 
 const $image = document.querySelector('#image');
 const $textContent = document.querySelector('#textContent');
@@ -64,7 +64,7 @@ async function setPokemon(id) {
 }
 
 function loader(isLoading = false) {
-    const img = isLoading ? 'url(./images/loading.gif)' : '';
+    const img = isLoading ? 'url(/images/loading.gif)' : '';
     $image.src = '';
     $screen.style.backgroundImage = img;
 }
