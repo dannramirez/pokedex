@@ -100,13 +100,10 @@ function speech(text) {
     utterance.lang = 'es-US';
     setTimeout(() => speechSynthesis.speak(utterance), 300)
 
-    
-
     utterance.addEventListener('end', () => {
         $light.classList.remove("is-animated");
     })
 
-    
 }
 
 
